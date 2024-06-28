@@ -20,9 +20,6 @@ jobs:
 
     - name: Install tree
       run: sudo apt-get install tree -y
-
-    - name: get files
-      run: git clone https://github.com/pwwq/files.git && cd files
       
     - name: Generate HTML file
       run: tree -H https://files.567899.xyz/ > index.html
