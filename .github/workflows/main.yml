@@ -3,7 +3,7 @@ name: Update System Files Tree
 on:
   push:
     paths:
-      - 'system/**'
+      - '**'
 
 jobs:
   build:
