@@ -1,0 +1,35 @@
+name: Update System Files Tree
+
+on:
+  push:
+    paths:
+      - '/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install tree
+      run: sudo apt-get install tree -y
+
+    - name: Generate HTML file
+      run: tree -H https://files.567899.xyz/ /root/f > index.html
+
+    - name: Commit and push changes
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git add index.html
+        git commit -m 'Update index.html with latest tree structure'
+        git push
+      env:
+        personal_token: ${{ secrets.PERSONAL_TOKEN }}
