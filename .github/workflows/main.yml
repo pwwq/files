@@ -25,7 +25,7 @@ jobs:
       run: git clone https://github.com/pwwq/files.git && cd files
       
     - name: Generate HTML file
-      run: tree -H https://files.567899.xyz/ /root/f > index.html
+      run: tree -H https://files.567899.xyz/ > index.html
 
     - name: Commit and push changes
       run: |
