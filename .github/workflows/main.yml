@@ -17,7 +17,7 @@ jobs:
       run: sudo apt-get update && sudo apt-get install tree -y
 
     - name: Generate HTML file
-      run: tree -H https://files.567899.xyz/ > index.html
+      run: tree -H https://files.567899.xyz > index.html
 
     - name: Commit and push changes
       run: |
